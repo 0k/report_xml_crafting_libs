@@ -13,7 +13,7 @@ Functions
 format_date
 -----------
 
-You can use format_date to display a full date in the correct internationalized manner.
+You can use ``format_date`` to display a full date in the correct internationalized manner.
 
 For instance::
 
@@ -60,7 +60,7 @@ for instance::
     categs = group_by(object.abstract_line_ids,
                       key=lambda al: al.product_id.categ_id.complete_name)
     %>
-    % for categ, lines in categs.iteritems(): 
+    % for categ, lines in categs.iteritems():
         <category name="${categ.name}">
 
         % for line in lines:
