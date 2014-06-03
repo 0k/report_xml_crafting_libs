@@ -30,6 +30,24 @@ Will output::
 For more info, check the docstring of ``format_date()`` in the code.
 
 
+strftime
+--------
+
+This function allows to display date in any format wanted.
+
+For instance::
+
+    ...
+    ${strftime(object.date_start, "%d/%m/%Y")}
+    ...
+
+Will output::
+
+    ...
+    10/10/2000
+    ...
+
+
 group_by
 --------
 
