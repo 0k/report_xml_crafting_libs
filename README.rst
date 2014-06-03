@@ -74,3 +74,21 @@ for instance::
     ...
 
 
+format_decimal
+--------------
+
+Format any number (floating point or not) in the given format and locale::
+
+    ...
+    ${object.amount_total}
+    ${format_decimal(object.amount_total, lang='fr')}
+    ${format_decimal(object.amount_total, lang='en', format='#,##0.000')}
+    ...
+
+Will output::
+
+    ...
+    2813.7357
+    2 813,74
+    2,813,736
+    ...
