@@ -92,3 +92,20 @@ Will output::
     2 813,74
     2,813,736
     ...
+
+
+escape_xml
+----------
+
+Will conveniently escape '&', '<' and '>' so that you can integrate some data
+in xml forms::
+
+    ...
+    <b>${escape_xml(object.name)}</b>
+    ...
+
+Will output::
+
+    ...
+    <b>Tom &amp; Jerry</b>
+    ...

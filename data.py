@@ -45,5 +45,10 @@ def format_decimal(amount, lang=None, format='#,##0.00', **kwargs):
 
 
 @register
+def escape_xml(str):
+    return str.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+@register
 def locale_format(fmt, value):
     return locale.format(fmt, unwrap(value))
