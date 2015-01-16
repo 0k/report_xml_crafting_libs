@@ -10,7 +10,10 @@ import locale
 ## import all openerp. That's sad. I can't do easy tests of
 ## my code.
 from openerp.addons.report_xml.mako_tools import \
-     register, MakoParsable, unwrap, mako_env
+     MakoParsable, unwrap, mako_env
+
+
+from .register import register
 
 
 @register

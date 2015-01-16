@@ -8,7 +8,7 @@ Note that you can run the doctest with:
 
 
 from openerp.addons.report_xml.mako_tools import \
-     register, MakoParsable, unwrap
+     MakoParsable, unwrap
 
 
 from babel.dates import format_date as babel_format_date
@@ -16,6 +16,8 @@ from datetime import datetime, date
 from sact.epoch import Time, UTC, TzLocal
 
 import time
+
+from .register import register
 
 
 @register

@@ -8,8 +8,10 @@ Note that you can run the doctest with:
 """
 
 
-from openerp.addons.report_xml.mako_tools import register, mako_env, \
+from openerp.addons.report_xml.mako_tools import mako_env, \
      MakoParsable
+
+from .register import register
 
 
 @register
