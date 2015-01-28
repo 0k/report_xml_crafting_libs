@@ -38,7 +38,7 @@ except ValueError: ## for tests
 
 
 @register
-def format_date(mp, locale):
+def format_date(mp, locale, format="long", hours=False):
     """Format a MakoParsable object as a date in provided locale
 
     Usage
@@ -75,6 +75,11 @@ def format_date(mp, locale):
         >>> format_date(epoch_string, "de")
         u'10. Oktober 2000'
 
+    And you can ask for displaying hours also::
+
+        >>> format_date(epoch_string, "en", format="medium", hours=True)
+        u'Oct 10, 2000, 12:00:00 AM'
+
     """
     raw = unwrap(mp)
     if isinstance(raw, basestring):
@@ -83,9 +88,9 @@ def format_date(mp, locale):
         dt = Time(raw, hint_src_tz=UTC())
     else:
         return MakoParsable(None)
-    return MakoParsable(babel_format_date(dt,
-                                          format="long",
-                                          locale=locale))
+    fun = dates.format_datetime if hours else dates.format_date
+    return MakoParsable(
+        fun(dt, format=format, locale=locale))
 
 
 @register

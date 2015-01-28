@@ -18,7 +18,7 @@ You can use ``format_date`` to display a full date in the correct internationali
 For instance::
 
     ...
-    ${format_date(object.date_start, "en")}
+    ${format_date(object.date_start, "en", format="long", hours=False)}
     ...
 
 Will output::
