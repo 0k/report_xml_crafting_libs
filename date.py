@@ -7,17 +7,34 @@ Note that you can run the doctest with:
 """
 
 
-from openerp.addons.report_xml.mako_tools import \
-     MakoParsable, unwrap
+try:
+    from openerp.addons.report_xml.mako_tools import \
+         MakoParsable, unwrap
+except ImportError:  ## for tests
+    class MakoParsable(object):
+        def __init__(self, obj):
+            self._obj = obj
+        def __repr__(self):
+            return repr(self._obj)
+
+    def wrap(elt):
+        return MakoParsable(elt) if not isinstance(elt, MakoParsable) else elt
+
+    def unwrap(elt):
+        return getattr(elt, "_obj") if isinstance(elt, MakoParsable) else elt
 
 
-from babel.dates import format_date as babel_format_date
+from babel import dates
 from datetime import datetime, date
 from sact.epoch import Time, UTC, TzLocal
 
 import time
 
-from .register import register
+try:
+    from .register import register
+except ValueError: ## for tests
+    def register(f):
+        return f
 
 
 @register
